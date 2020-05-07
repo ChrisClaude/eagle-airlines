@@ -23,7 +23,7 @@ class BookingTable extends Migration
 
             $table->timestamps();
 
-            $table->index('flight_code');
+            $table->index('flight_id');
             $table->index('passenger_id');
         });
     }
