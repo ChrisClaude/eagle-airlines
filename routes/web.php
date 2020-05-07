@@ -21,7 +21,15 @@ Route::get('/', function () {
 Route::get('/bookings/create', 'BookingsController@create');
 Route::post('/bookings', 'BookingsController@store');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ * ***************
+ * Admin Routes  *
+ * **************
+ * */
+
+// Airports Routes
+Route::get('/airports', 'AirportsController@index');
