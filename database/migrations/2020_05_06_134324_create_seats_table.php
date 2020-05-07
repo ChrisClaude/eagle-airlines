@@ -15,12 +15,13 @@ class CreateSeatsTable extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flight_code');
+            $table->foreignId('flight_code')->constrained();
             $table->string('seat_num');
-            $table->string('class');
+            $table->enum('class', ['eco', 'bus']);
             $table->timestamps();
 
             $table->index('flight_code');
+            $table->index('class');
         });
     }
 

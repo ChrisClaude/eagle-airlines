@@ -14,11 +14,11 @@ class BookingTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->id('booking_code');
+            $table->uuid('id');
             $table->enum('kind', ['round-trip', 'one-way', 'multi-city']);
             $table->string('status');
-            $table->foreignId('flight_code');
-            $table->foreignId('passenger_id');
+            $table->foreignId('flight_id')->constrained();
+            $table->foreignId('passenger_id')->constrained();
             $table->double('total_amount');
 
             $table->timestamps();
