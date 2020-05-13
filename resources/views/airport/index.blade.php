@@ -5,10 +5,18 @@
     <div class="container">
         <h1>All Airports</h1>
         <div class="my-4">
-            <form action="" class="form-inline">
+            <form method="GET" action="/airports/search" class="form-inline">
+                @csrf
                 <div class="form-group w-50">
-                    <input type="text" id="search-airport" class="form-control w-100">
+                    <input type="text"
+                           id="search-airport"
+                           name="airport"
+                           class="form-control w-100 @error('search-airport') is-invalid @enderror"
+                           placeholder="Enter the name of the airport or the city location">
                     <label for="search-airport"></label>
+                    @error('search-airport')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary ml-1">Search</button>
             </form>
@@ -28,7 +36,9 @@
                 <th scope="col">ICIA</th>
                 <th class="w-25" scope="col">Geo Coordinates</th>
                 <th scope="col">Timezone</th>
-                <th class="w-50"><button class="btn btn-primary">New Airport</button></th>
+                <th class="w-50">
+                    <button class="btn btn-primary">New Airport</button>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -47,8 +57,10 @@
                     </td>
                     <td>{{ $airport->timezone }}</td>
                     <td>
-                        <button class="btn btn-primary">View</button> |
-                        <button class="btn btn-secondary">Edit</button> |
+                        <button class="btn btn-primary">View</button>
+                        |
+                        <button class="btn btn-secondary">Edit</button>
+                        |
                         <button class="btn btn-danger">Delete</button>
                     </td>
                 </tr>

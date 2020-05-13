@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Airports Routes
 Route::get('/airports', 'AirportsController@index');
+Route::get('/airports/search', 'AirportsController@search')->name('search_airports');

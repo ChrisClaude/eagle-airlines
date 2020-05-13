@@ -29,6 +29,10 @@ class CreateAirportsTable extends Migration
             $table->string('station_type');
             $table->string('source');
             $table->timestamps();
+
+            $table->index('name');
+            $table->index('city');
+            $table->index('country');
         });
     }
 
