@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 // Booking Routes
 Route::get('/bookings/create', 'BookingsController@create');
-Route::post('/bookings', 'BookingsController@store');
+Route::post('/bookings', 'BookingsController@store')->name('create_booking');
 
 Auth::routes();
 
