@@ -19,13 +19,8 @@ Route::get('/', function () {
 });
 
 // Booking Routes
-<<<<<<< HEAD
-Route::get('/bookings/create', 'BookingsController@create');
-Route::post('/bookings', 'BookingsController@store')->name('create_booking');
-=======
 Route::get('/bookings/create', 'BookingsController@create')->name('create_booking_page');
-Route::post('/bookings', 'BookingsController@store');
->>>>>>> development
+Route::post('/bookings', 'BookingsController@store')->name('create_booking');
 
 Auth::routes();
 
