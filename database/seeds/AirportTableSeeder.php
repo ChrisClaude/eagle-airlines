@@ -14,7 +14,7 @@ class AirportTableSeeder extends Seeder
     public function run()
     {
         DB::table('airports')->delete();
-        $json = File::get("database/data/airport.json");
+        $json = File::get("database/data/airports.json");
         $airports = json_decode($json);
         foreach ($airports as $airport) {
             Airport::create(array(
