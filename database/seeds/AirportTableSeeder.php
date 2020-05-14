@@ -13,7 +13,7 @@ class AirportTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('airport')->delete();
+        DB::table('airports')->delete();
         $json = File::get("database/data/airport.json");
         $airports = json_decode($json);
         foreach ($airports as $airport) {
