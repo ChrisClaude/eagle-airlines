@@ -13,7 +13,7 @@ class CreateAirportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('airport', function (Blueprint $table) {
+        Schema::create('airports', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('city');
