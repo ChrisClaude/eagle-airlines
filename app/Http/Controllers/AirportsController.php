@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Airport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +12,11 @@ class AirportsController extends Controller
     public function index() {
         $airports = DB::table('airports')->paginate(17);
 
-        return view('airport.index', compact('airports'));
+        return view('airports.index', compact('airports'));
+    }
+
+    public function show(Airport $airport) {
+        return view('airports.show', compact('airport'));
     }
 
     public function search(Request $request) {
@@ -22,7 +27,6 @@ class AirportsController extends Controller
             ->orWhere('country', 'like', '%'.$airport.'%')
             ->paginate(17);
 
-
-        return view('airport.index', compact('airports'));
+        return view('airports.index', compact('airports'));
     }
 }

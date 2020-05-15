@@ -11,10 +11,10 @@
                     <input type="text"
                            id="search-airport"
                            name="airport"
-                           class="form-control w-100 @error('search-airport') is-invalid @enderror"
+                           class="form-control w-100 @error('search-airports') is-invalid @enderror"
                            placeholder="Enter the name of the airport or the city location">
                     <label for="search-airport"></label>
-                    @error('search-airport')
+                    @error('search-airports')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -37,7 +37,7 @@
                 <th class="w-25" scope="col">Geo Coordinates</th>
                 <th scope="col">Timezone</th>
                 <th class="w-50">
-                    <button class="btn btn-primary">New Airport</button>
+                    <button class="btn btn-primary" disabled>New Airport</button>
                 </th>
             </tr>
             </thead>
@@ -55,13 +55,13 @@
                         <div>Longitude: {{ round($airport->longitude, 3) }}</div>
                         <div>altitude: {{ round($airport->altitude, 3) }}</div>
                     </td>
-                    <td>{{ $airport->timezone }}</td>
+                    <td>{{ $airport->timezone > 0? '+' : ''}}{{ $airport->timezone }}</td>
                     <td>
-                        <button class="btn btn-primary">View</button>
+                        <a href="/airports/{{$airport->id}}" class="btn btn-primary">View</a>
                         |
-                        <button class="btn btn-secondary">Edit</button>
+                        <button class="btn btn-secondary" disabled>Edit</button>
                         |
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" disabled>Delete</button>
                     </td>
                 </tr>
             @endforeach

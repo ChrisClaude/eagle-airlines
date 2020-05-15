@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 // Booking Routes
-Route::get('/bookings/create', 'BookingsController@create')->name('create_booking_page');
-Route::post('/bookings', 'BookingsController@store')->name('create_booking');
+Route::get('/bookings/create', 'BookingsController@create')->name('bookings.create');
+Route::post('/bookings', 'BookingsController@store')->name('bookings.store');
 
 Auth::routes();
 
@@ -33,5 +33,6 @@ Route::get('/home', 'HomeController@index')->name('home');
  * */
 
 // Airports Routes
-Route::get('/airports', 'AirportsController@index');
-Route::get('/airports/search', 'AirportsController@search')->name('search_airports');
+Route::get('/airports', 'AirportsController@index')->name('airports.index');
+Route::get('/airports/search', 'AirportsController@search')->name('airports.search');
+Route::get('/airports/{airport}', 'AirportsController@show')->name('airports.show');
